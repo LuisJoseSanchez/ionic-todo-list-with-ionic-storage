@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar tarea</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">Título</ion-label>
+    <ion-input clearInput [(ngModel)]="task.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-input clearInput [(ngModel)]="task.description"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button (click)="saveTask(task)" expand="full">
+    Guardar
+  </ion-button>
 </ion-content>

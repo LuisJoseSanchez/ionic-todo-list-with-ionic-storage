@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from 'src/app/model/task';
+import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
   selector: 'app-edit',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPage implements OnInit {
 
-  constructor() { }
+  task: Task = {title: '', description: ''};
+  
+  constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
   }
 
+  saveTask() {
+    this.tasksService.saveTask(this.task);
+  }
 }

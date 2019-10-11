@@ -26,4 +26,10 @@ export class TasksService {
   public getTasks(): Task[] {
     return this.tasks;
   }
+
+  public saveTask(t: Task) {
+    const maxId = this.tasks.reduce((max, t) => t.id > max? t.id : max, 0);
+    const newTask = {id: maxId + 1, title: t.title, description: t.description};
+    this.tasks.push(newTask);
+  }
 }
