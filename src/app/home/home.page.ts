@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Task } from '../model/task';
+import { TasksService } from '../services/tasks.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  tasks: Task[] = [];
 
+  constructor(private taskService: TasksService) {}
+
+  ngOnInit() {
+    this.tasks = this.taskService.getTasks();
+  }
 }
