@@ -17,7 +17,8 @@
     <ion-input clearInput [(ngModel)]="task.description"></ion-input>
   </ion-item>
   <br>
-  <ion-button (click)="saveTask(task)" expand="full">
+  <ion-button (click)="saveTask()" expand="full">
     Guardar
   </ion-button>
+  {{ tasks | json }}
 </ion-content>
