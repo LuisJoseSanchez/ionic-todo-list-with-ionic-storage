@@ -17,6 +17,11 @@
       <ion-item *ngFor="let t of tasks">
         <ion-label>{{ t.title }}</ion-label>
         <ion-icon
+          name="create"
+          (click)="goEditTask(t.id)">
+        </ion-icon>
+        <ion-icon name="blank"></ion-icon>
+        <ion-icon
           name="trash"
           (click)="presentAlertConfirm(t.id, t.title)">
         </ion-icon>

@@ -27,10 +27,22 @@ export class TasksService {
     return this.tasks;
   }
 
+  public getTask(id: number): Task {
+    return this.tasks.filter(t => t.id == id)[0];
+  }
+
   public saveTask(t: Task) {
-    const maxId = this.tasks.reduce((max, t) => t.id > max? t.id : max, -1);
-    const newTask = {id: maxId + 1, title: t.title, description: t.description};
-    this.tasks.push(newTask);
+    if (t.id == undefined) {
+      // New task
+      const maxId = this.tasks.reduce((max, t) => t.id > max? t.id : max, -1);
+      const newTask = {id: maxId + 1, title: t.title, description: t.description};
+      this.tasks.push(newTask);
+    } else {
+      // Edit task
+      this.deleteTask(t.id);
+      this.tasks.push(t);
+      this.tasks.sort((t1, t2) => t1.id < t2.id ? -1 : 1);
+    }
   }
 
   public deleteTask(id: number) {

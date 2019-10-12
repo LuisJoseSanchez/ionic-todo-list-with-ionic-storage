@@ -23,8 +23,8 @@ export class HomePage {
     this.tasks = this.taskService.getTasks();
   }
 
-  goEditTask() {
-    this.router.navigateByUrl('/edit');
+  goEditTask(id: number) {
+    this.router.navigateByUrl(`/edit${id != undefined ? '/' + id : ''}`);
   }
 
   deleteTask(id: number) {
