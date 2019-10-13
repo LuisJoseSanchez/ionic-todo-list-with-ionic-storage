@@ -10,12 +10,11 @@ import { TasksService } from 'src/app/services/tasks.service';
 export class EditPage implements OnInit {
 
   task: Task = {title: '', description: ''};
-  tasks: Task[] = [];
 
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    this.tasks = this.tasksService.getTasks();
+    
   }
 
   saveTask() {
