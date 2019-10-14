@@ -1,6 +1,6 @@
 # Ionic todo list with Ionic Storage
 
-Yo can create new tasks, edit, and delete them. Everything is save with Ionic Storage.
+Yo can create new tasks, edit, and delete them. Everything is saved with Ionic Storage.
 
 To run the project:
 
