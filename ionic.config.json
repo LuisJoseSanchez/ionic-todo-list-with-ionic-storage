@@ -1,5 +1,7 @@
 {
   "name": "ionic-todo-list-with-local-storage",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
