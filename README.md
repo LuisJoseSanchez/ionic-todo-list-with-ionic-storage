@@ -17,7 +17,7 @@ ionic serve
 
 ### New task
 
-<img src="edit01.png">
+<img src="edit011.png">
 
 ### Edit task
 
