@@ -19,8 +19,12 @@ export class HomePage {
     private alertController: AlertController
   ) { }
 
-  ngOnInit() {
-    this.tasks = this.taskService.getTasks();
+  ngOnInit() { }
+
+  ionViewWillEnter() {
+    this.taskService.getTasks().then(
+      data => this.tasks = data
+    );
   }
 
   goEditTask(id: number) {
@@ -28,8 +32,12 @@ export class HomePage {
   }
 
   deleteTask(id: number) {
-    this.taskService.deleteTask(id);
-    this.tasks = this.taskService.getTasks();
+    this.taskService.deleteTask(id).then(
+      () => this.taskService.getTasks().then(
+        data => this.tasks = data
+      )
+    );
+    
   }
 
   async presentAlertConfirm(id: number, title: string) {
